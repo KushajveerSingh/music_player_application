@@ -1,8 +1,11 @@
+import { useAppSelector } from '../store/hooks';
+
 const Home = () => {
+  // const { activeSong } = useA
   return (
-    <>
-      <h1 className="text-3xl font-bold underline">Hello</h1>
-    </>
+    <div className="relative flex">
+      <h1>Hello</h1>
+    </div>
   );
 };
 

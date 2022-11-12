@@ -1,10 +1,14 @@
-import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit'
+import { configureStore, ThunkAction, Action, getDefaultMiddleware } from '@reduxjs/toolkit'
+import { shazamCoreApi } from './features/shazamCore';
+import playerReducer from './slices/playerSlice';
 
 export function makeStore() {
   return configureStore({
     reducer: {
-
-    }
+      [shazamCoreApi.reducerPath]: shazamCoreApi.reducer,
+      player: playerReducer,
+    },
+    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(shazamCoreApi.middleware),
   });
 }
 
